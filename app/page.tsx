@@ -1,152 +1,215 @@
-"use client";
+import { Inter } from "next/font/google";
 
-import { motion } from "framer-motion";
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
 
-export default function Home() {
+export default function ResumePage() {
   const skills = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "React",
     "Next.js",
+    "React.js",
+    "HTML5",
+    "CSS3",
     "Tailwind CSS",
-    "TypeScript",
-    "API Integration",
-    "VS Code",
     "Java",
     "Python",
+    "TypeScript",
+  ];
+
+  const projects = [
+    {
+      title: "Online Rental Car Booking System",
+      description:
+        "Built a responsive car booking platform with vehicle listing, booking management, and user-friendly UI using Next.js and Tailwind CSS.",
+    },
+    {
+      title: "E-Commerce Website",
+      description:
+        "Developed a modern shopping website with product pages, cart functionality, and responsive layouts.",
+    },
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-950 text-white overflow-hidden relative">
-
-      {/* Blur Effects */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-pink-500 rounded-full blur-3xl opacity-20"></div>
-
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
-
-      <div className="relative max-w-7xl mx-auto px-6 py-12">
-
+    <main
+      className={`${inter.className} min-h-screen bg-gradient-to-br from-slate-100 to-gray-200 py-10 px-4`}
+    >
+      <div className="max-w-6xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -80 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10 shadow-2xl"
-        >
-
-          <div className="flex flex-col md:flex-row items-center gap-10">
-
-            <motion.img
-              whileHover={{ scale: 1.08 }}
-              src="/BHUVI.jpeg"
-              alt="profile"
-              className="w-44 h-44 rounded-full border-4 border-pink-500 shadow-2xl object-cover"
-            />
-
-            <div className="text-center md:text-left">
-
-              <h1 className="text-6xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-                Bhuvaneswari S
+        <div className="bg-slate-900 text-white p-10">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-wide">
+                Bhuaneswari
               </h1>
 
-              <p className="text-2xl mt-3 text-gray-300">
-                Frontend Developer | Next.js Developer
+              <p className="text-lg text-gray-300 mt-3">
+                Full Stack Developer / Student
               </p>
-
-              {/* Contact Details */}
-              <div className="mt-6 space-y-2 text-gray-300 text-lg">
-                <p>📍 Address: Namakkal</p>
-                <p>📞 Phone:7358791857</p>
-                <p>📧 Email: gowthambhuvaneswari3194@gmail.com</p>
-                <p>🎓 College: Paavai Polytechnic College</p>
-              </div>
-
             </div>
 
+            <div className="space-y-2 text-sm md:text-base">
+              <p>📍 Namakkal, Tamil Nadu, India</p>
+              <p>📧 gowthambhuaneswari3194@gmail.com</p>
+              <p>📞 +91 7358791857</p>
+            </div>
           </div>
+        </div>
 
-        </motion.div>
+        {/* Main Layout */}
+        <div className="grid md:grid-cols-3">
+          {/* Sidebar */}
+          <aside className="bg-gray-50 p-8 border-r">
+            {/* Skills */}
+            <section>
+              <h2 className="text-2xl font-bold text-slate-900 mb-5 border-b pb-2">
+                Skills
+              </h2>
 
-        {/* About */}
-        <motion.section
-          initial={{ opacity: 0, x: -80 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          className="mt-10 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10 shadow-2xl"
-        >
+              <div className="flex flex-wrap gap-3">
+                {skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-slate-700 transition"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </section>
 
-          <h2 className="text-4xl font-bold text-pink-400">
-            About Me
-          </h2>
+            {/* Education */}
+            <section className="mt-10">
+              <h2 className="text-2xl font-bold text-slate-900 mb-5 border-b pb-2">
+                Education
+              </h2>
 
-          <p className="mt-6 text-lg text-gray-300 leading-9">
-            Passionate about building my tiny online shop.
-            Starting small, growing with purpose every day.
-            Focused on quality, creativity, and customer happiness ✨.
-          </p>
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-lg font-semibold">
+                    Diploma in Computer Science
+                  </h3>
 
-        </motion.section>
+                  <p className="text-gray-600 text-sm mt-1">
+                    Information Technology
+                  </p>
 
-        {/* Project Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 80 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="mt-10 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10 shadow-2xl"
-        >
+                  <p className="text-gray-500 text-sm">
+                    2023 - Present
+                  </p>
+                </div>
+              </div>
+            </section>
 
-          <h2 className="text-4xl font-bold text-pink-400">
-            My Project
-          </h2>
+            {/* Languages */}
+            <section className="mt-10">
+              <h2 className="text-2xl font-bold text-slate-900 mb-5 border-b pb-2">
+                Languages
+              </h2>
 
-          <div className="mt-6 text-lg text-gray-300 leading-9">
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-center gap-2">
+                  ✅ English
+                </li>
 
-            <h3 className="text-2xl font-semibold text-white mb-4">
-              Tiny Online Shop
-            </h3>
+                <li className="flex items-center gap-2">
+                  ✅ Tamil
+                </li>
+              </ul>
+            </section>
+          </aside>
 
-            <p>
-              A small online shopping website where users can order
-              daily small products like pencils, pens, colour crayons,
-              A4 sheets, 1 rupee shampoo packets, rings, and many
-              other useful items.
-            </p>
+          {/* Main Content */}
+          <section className="md:col-span-2 p-8 md:p-10">
+            {/* Profile */}
+            <section>
+              <h2 className="text-3xl font-bold text-slate-900 mb-5">
+                Profile
+              </h2>
 
-          </div>
+              <p className="text-gray-700 leading-8 text-justify">
+                Passionate and motivated student with strong interest in
+                full-stack web development and modern frontend technologies.
+                Skilled in building responsive web applications using Next.js,
+                React.js, Tailwind CSS, and TypeScript. Eager to learn new
+                technologies, solve real-world problems, and contribute to
+                innovative software projects.
+              </p>
+            </section>
 
-        </motion.section>
+            {/* Experience */}
+            <section className="mt-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-6">
+                Experience
+              </h2>
 
-        {/* Skills */}
-        <motion.section
-          initial={{ opacity: 0, x: 80 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          className="mt-10 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10 shadow-2xl"
-        >
+              <div className="bg-gray-50 border rounded-2xl p-6 hover:shadow-lg transition">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                  <div>
+                    <h3 className="text-2xl font-semibold text-slate-800">
+                      Next.js Developer Intern
+                    </h3>
 
-          <h2 className="text-4xl font-bold text-pink-400">
-            Skills
-          </h2>
+                    <p className="text-blue-600 font-medium mt-1">
+                      Internship
+                    </p>
+                  </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8">
+                  <span className="text-sm text-gray-500">
+                    2025 - Present
+                  </span>
+                </div>
 
-            {skills.map((skill, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.08 }}
-                className="bg-gradient-to-r from-pink-500 to-purple-600 p-5 rounded-2xl text-center text-lg font-semibold shadow-xl"
-              >
-                {skill}
-              </motion.div>
-            ))}
+                <ul className="list-disc ml-6 mt-5 text-gray-700 space-y-3 leading-7">
+                  <li>
+                    Built responsive web applications using Next.js and
+                    Tailwind CSS.
+                  </li>
 
-          </div>
+                  <li>
+                    Developed e-commerce features including product listings,
+                    shopping cart, and UI components.
+                  </li>
 
-        </motion.section>
+                  <li>
+                    Learned API integration, component-based architecture, and
+                    frontend optimization techniques.
+                  </li>
 
+                  <li>
+                    Improved problem-solving and teamwork skills through
+                    project-based development.
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            {/* Projects */}
+            <section className="mt-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-6">
+                Projects
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                {projects.map((project) => (
+                  <div
+                    key={project.title}
+                    className="bg-white border rounded-2xl p-6 shadow-sm hover:shadow-xl transition duration-300"
+                  >
+                    <h3 className="text-xl font-semibold text-slate-800">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-gray-600 mt-3 leading-7 text-sm">
+                      {project.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </section>
+        </div>
       </div>
-
     </main>
   );
 }
